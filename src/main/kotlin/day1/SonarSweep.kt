@@ -1,6 +1,7 @@
 package day1
 
 import java.io.FileReader
+import java.nio.file.Path
 
 /**
  * Returns the number of strict increases in depth in the given measurements.
@@ -26,12 +27,10 @@ fun numAveragedDepthMeasurementIncreases(depthMeasurements: List<Int>): Int {
 }
 
 /**
- * Marshals depth measurements from disk. This procedure assumes that the file contains one integer per line with no
- * other text.
+ * Marshals depth measurements from the given file. This procedure assumes that the file contains one integer per line
+ * with no other text.
  */
-fun readDepthMeasurements(): List<Int> {
-    val fileName =
-        "C:\\Users\\Allie\\IdeaProjects\\advent_of_code_2021\\src\\main\\kotlin\\day1\\depth_measurements.txt"
-    val fileReader = FileReader(fileName)
+fun readDepthMeasurements(fileName: Path): List<Int> {
+    val fileReader = FileReader(fileName.toFile())
     return fileReader.readLines().map(Integer::valueOf)
 }
