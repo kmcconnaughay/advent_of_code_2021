@@ -45,7 +45,7 @@ fun runCommands(commands: List<String>): Position {
 private fun applyCommand(position: Position, command: Command): Position {
     return when (command.operation) {
         Operation.FORWARD -> position.copy(horizontalPosition = position.horizontalPosition + command.distance)
-        Operation.DOWN -> position.copy(depth =position.depth + command.distance)
+        Operation.DOWN -> position.copy(depth = position.depth + command.distance)
         Operation.UP -> position.copy(depth = max(position.depth - command.distance, 0))
     }
 }
