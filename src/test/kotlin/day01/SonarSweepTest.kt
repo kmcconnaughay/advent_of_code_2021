@@ -1,9 +1,9 @@
-package day1
+package day01
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-internal class SonarSweepKtTest {
+internal class SonarSweepTest {
 
     @Test
     fun numDepthMeasurementIncreases_emptyList_returnsZero() {
@@ -12,7 +12,7 @@ internal class SonarSweepKtTest {
 
     @Test
     fun numDepthMeasurementIncreases_onlyDecreases_returnsZero() {
-        val depthMeasurements = listOf(200, 150, 100, 50)
+        val depthMeasurements = listOf("200", "150", "100", "50")
 
         val numIncreases = numDepthMeasurementIncreases(depthMeasurements)
 
@@ -21,7 +21,7 @@ internal class SonarSweepKtTest {
 
     @Test
     fun numDepthMeasurementIncreases_someIncreases_countsIncreases() {
-        val depthMeasurements = listOf(199, 200, 208, 210, 200, 207, 240, 269, 269, 260, 263)
+        val depthMeasurements = listOf("199", "200", "208", "210", "200", "207", "240", "269", "269", "260", "263")
 
         val numIncreases = numDepthMeasurementIncreases(depthMeasurements)
 
@@ -35,12 +35,12 @@ internal class SonarSweepKtTest {
 
     @Test
     fun numAveragedDepthMeasurementIncreases_fewerThanFourMeasurements_returnsZero() {
-        assertEquals(0, numAveragedDepthMeasurementIncreases(listOf(300, 400, 500)))
+        assertEquals(0, numAveragedDepthMeasurementIncreases(listOf("300", "400", "500")))
     }
 
     @Test
     fun numAveragedDepthMeasurementIncreases_noIncreases_returnsZero() {
-        val depthMeasurements = listOf(500, 400, 300, 200, 100)
+        val depthMeasurements = listOf("500", "400", "300", "200", "100")
 
         val numIncreases = numAveragedDepthMeasurementIncreases(depthMeasurements)
 
@@ -49,7 +49,7 @@ internal class SonarSweepKtTest {
 
     @Test
     fun numAveragedDepthMeasurementIncreases_someIncreases_countsIncreases() {
-        val depthMeasurements = listOf(199, 200, 208, 210, 200, 207, 240, 269, 260, 263)
+        val depthMeasurements = listOf("199", "200", "208", "210", "200", "207", "240", "269", "260", "263")
 
         val numIncreases = numAveragedDepthMeasurementIncreases(depthMeasurements)
 
