@@ -2,7 +2,7 @@ package day04
 
 import java.util.regex.Pattern
 
-data class BingoGame(val drawnNumbers: List<Int>, val bingoBoards: List<BingoBoard>) {
+class BingoGame(private val drawnNumbers: List<Int>, private val bingoBoards: List<BingoBoard>) {
 
     fun runToFirstWinner(): Int {
         for (number in drawnNumbers) {
