@@ -23,7 +23,9 @@ class BingoGame(private val drawnNumbers: List<Int>, private val bingoBoards: Li
 
             if (remainingBoards.size == 1 && remainingBoards[0].hasWon()) {
                 return remainingBoards[0].unmarkedNumbers().sum() * number
-            } else {
+            }
+
+            if (remainingBoards.size > 1) {
                 remainingBoards = remainingBoards.filter { bingoBoard -> !bingoBoard.hasWon() }
             }
         }
