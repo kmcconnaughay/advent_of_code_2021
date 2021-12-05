@@ -32,10 +32,11 @@ private val operationParser: Parser<Chr, Operation> =
  *
  * command ::= <operation>" "<number>
  * operation ::= "forward" | "down" | "up"
- * number ::= <zero> | <nonZeroNumber>
- * nonZeroNumber ::= <nonZeroDigit><number>
- * nonZeroDigit ::= "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
- * zero ::= "0"
+ * number ::= "0" | <nonZeroNumber>
+ * nonZeroNumber ::= <nonZeroDigit><digits>
+ * digits ::= <digit> | <digit><digits>
+ * digit ::= "0" | <nonZeroDigit>
+ * nonZeroDigit :: = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
  */
 private val commandParser: Parser<Chr, Command> =
     operationParser.andL(chr(' ')).and(uintr).map { direction, distance -> Command(direction, distance) }
