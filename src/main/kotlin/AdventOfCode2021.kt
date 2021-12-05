@@ -5,6 +5,8 @@ import day02.runCommandsWithAim
 import day03.computeLifeSupportRating
 import day03.computePowerConsumption
 import day04.BingoGame
+import day05.countIntersections
+import day05.parseLineSegment
 import java.nio.file.Path
 
 private const val projectDirectory = "C:\\Users\\Allie\\IdeaProjects\\advent_of_code_2021\\"
@@ -33,4 +35,10 @@ fun main() {
     val bingoGame = BingoGame.parse(day04Data)
     println("Day 04 Part 1: ${bingoGame.runToFirstWinner()}")
     println("Day 04 Part 2: ${bingoGame.runToLastWinner()}")
+
+    val day05FileName = Path.of(kotlinDirectory + "day05\\hydrothermal_venture.txt")
+    val day05Data = readData(day05FileName)
+    val lineSegments = day05Data.map(::parseLineSegment)
+    println("Day 05 Part 1: ${countIntersections(lineSegments, onlyConsiderVerticalAndHorizontalLineSegments = true)}")
+    println("Day 05 Part 2: ${countIntersections(lineSegments)}")
 }
