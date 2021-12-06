@@ -7,6 +7,8 @@ import day03.computePowerConsumption
 import day04.BingoGame
 import day05.countIntersections
 import day05.parseLineSegment
+import day06.initializePopulation
+import day06.populationSizeAfterNSteps
 import java.nio.file.Path
 
 private const val projectDirectory = "C:\\Users\\Allie\\IdeaProjects\\advent_of_code_2021\\"
@@ -41,4 +43,9 @@ fun main() {
     val lineSegments = day05Data.map(::parseLineSegment)
     println("Day 05 Part 1: ${countIntersections(lineSegments, onlyConsiderVerticalAndHorizontalLineSegments = true)}")
     println("Day 05 Part 2: ${countIntersections(lineSegments)}")
+
+    val day06FileName = Path.of(kotlinDirectory, "day06\\lanternfish.txt")
+    val day06Data = readData(day06FileName)
+    println("Day 06 Part 1: ${populationSizeAfterNSteps(initializePopulation(day06Data), 80)}")
+    println("Day 06 Part 2: ${populationSizeAfterNSteps(initializePopulation(day06Data), 256)}")
 }
