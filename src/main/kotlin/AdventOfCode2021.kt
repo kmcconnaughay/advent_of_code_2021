@@ -9,6 +9,9 @@ import day05.countIntersections
 import day05.parseLineSegment
 import day06.initializePopulation
 import day06.populationSizeAfterNSteps
+import day07.alignPositionsWithLinearFuelConsumption
+import day07.alignPositionsWithTriangularFuelConsumption
+import day07.createPositionHistogram
 import java.nio.file.Path
 
 private const val projectDirectory = "C:\\Users\\Allie\\IdeaProjects\\advent_of_code_2021\\"
@@ -48,4 +51,9 @@ fun main() {
     val day06Data = readData(day06FileName)
     println("Day 06 Part 1: ${populationSizeAfterNSteps(initializePopulation(day06Data), 80)}")
     println("Day 06 Part 2: ${populationSizeAfterNSteps(initializePopulation(day06Data), 256)}")
+
+    val day07FileName = Path.of(kotlinDirectory, "day07\\the_treachery_of_whales.txt")
+    val day07Data = readData(day07FileName)
+    println("Day 07 Part 1: ${alignPositionsWithLinearFuelConsumption(createPositionHistogram(day07Data))}")
+    println("Day 07 Part 1: ${alignPositionsWithTriangularFuelConsumption(createPositionHistogram(day07Data))}")
 }
