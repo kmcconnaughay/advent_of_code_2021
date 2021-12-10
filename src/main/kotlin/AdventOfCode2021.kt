@@ -17,6 +17,8 @@ import day08.sumOutputValues
 import day09.computeRiskLevels
 import day09.findBasins
 import day09.parseHeightMap
+import day10.computeAutoCompleteScore
+import day10.computeSyntaxErrorScore
 import org.jetbrains.kotlinx.multik.ndarray.operations.sum
 
 fun main() {
@@ -67,6 +69,6 @@ fun main() {
     )
 
     val day10Data = readData(day = 10)
-    println("Day 10 Part 1: ")
-    println("Day 10 Part 2: ")
+    println("Day 10 Part 1: ${computeSyntaxErrorScore(day10Data)}")
+    println("Day 10 Part 2: ${computeAutoCompleteScore(day10Data)}")
 }
