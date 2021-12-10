@@ -32,8 +32,8 @@ fun populationSizeAfterNSteps(initialPopulation: D2Array<Long>, steps: Int): Lon
 }
 
 fun initializePopulation(input: List<String>): D2Array<Long> {
-    val lanternfish = input[0].split(",").map(Integer::parseInt)
-    val populationCounts = lanternfish.groupBy { timeToReproduction -> timeToReproduction }
+    val lanternfish = input[0].split(",").map { it.toInt() }
+    val populationCounts = lanternfish.groupBy { it }
         .mapValues { (_, lanternfishByLifecycleStage) -> lanternfishByLifecycleStage.size }
     val populationVector = mk.zeros<Long>(dim1 = 9, dim2 = 1)
     for ((timeToReproduction, count) in populationCounts) {

@@ -14,6 +14,10 @@ import day07.alignPositionsWithTriangularFuelConsumption
 import day07.createPositionHistogram
 import day08.countOnesFoursSevensAndEightsInOutputValues
 import day08.sumOutputValues
+import day09.computeRiskLevels
+import day09.findBasins
+import day09.parseHeightMap
+import org.jetbrains.kotlinx.multik.ndarray.operations.sum
 
 fun main() {
     val day01Data = readData(day = 1)
@@ -53,8 +57,14 @@ fun main() {
     println("Day 08 Part 2: ${sumOutputValues(day08Data)}")
 
     val day09Data = readData(day = 9)
-    println("Day 09 Part 1:")
-    println("Day 09 Part 2: ")
+    val heightMap = parseHeightMap(day09Data)
+    println("Day 09 Part 1: ${computeRiskLevels(heightMap).sum()}")
+    val basins = findBasins(heightMap)
+    println("Day 09 Part 2: ${
+        basins.map { it.coordinates.size }.sortedDescending().subList(0, 3)
+            .reduce { acc, basinSize -> acc * basinSize }
+    }"
+    )
 
     val day10Data = readData(day = 10)
     println("Day 10 Part 1: ")

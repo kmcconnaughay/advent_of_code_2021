@@ -42,7 +42,7 @@ fun alignPositionsWithLinearFuelConsumption(positionHistogram: List<Int>): Int {
 }
 
 fun createPositionHistogram(unparsedPositions: List<String>): List<Int> {
-    val positions = unparsedPositions[0].split(",").map(Integer::parseInt)
+    val positions = unparsedPositions[0].split(",").map { it.toInt() }
     val maxPosition = positions.maxOrNull() ?: 0
     val positionHistogram = MutableList(maxPosition + 1) { 0 }
 

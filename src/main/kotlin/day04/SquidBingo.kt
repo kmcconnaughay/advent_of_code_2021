@@ -35,7 +35,7 @@ class BingoGame(private val drawnNumbers: List<Int>, private val bingoBoards: Li
 
     companion object {
         fun parse(input: List<String>): BingoGame {
-            val drawnNumbers = input[0].split(",").map(Integer::parseInt)
+            val drawnNumbers = input[0].split(",").map { it.toInt() }
             val bingoBoards = input.subList(1, input.size).chunked(5).map(BingoBoard::parse)
             return BingoGame(drawnNumbers, bingoBoards)
         }
@@ -111,7 +111,7 @@ class BingoBoard private constructor(
             val numRows = input.size
             val board =
                 input.flatMap { row -> row.trim().split(SPACES) }
-                    .map(Integer::parseInt)
+                    .map { it.toInt() }
                     .map { number -> BingoNumber(value = number, marked = false) }
             val numColumns = board.size / numRows
             return BingoBoard(numColumns = numColumns, numRows = numRows, board = board)
