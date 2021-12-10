@@ -12,48 +12,51 @@ import day06.populationSizeAfterNSteps
 import day07.alignPositionsWithLinearFuelConsumption
 import day07.alignPositionsWithTriangularFuelConsumption
 import day07.createPositionHistogram
-import java.nio.file.Path
-
-private const val projectDirectory = "C:\\Users\\Allie\\IdeaProjects\\advent_of_code_2021\\"
-private const val kotlinDirectory = projectDirectory + "src\\main\\kotlin\\"
+import day08.countOnesFoursSevensAndEightsInOutputValues
+import day08.sumOutputValues
 
 fun main() {
-    val day01FileName = Path.of(kotlinDirectory + "day01\\depth_measurements.txt")
-    val day01Data = readData(day01FileName)
+    val day01Data = readData(day = 1)
     println("Day 01 Part 1: ${numDepthMeasurementIncreases(day01Data)}")
     println("Day 01 Part 2: ${numAveragedDepthMeasurementIncreases(day01Data)}")
 
-    val day02FileName = Path.of(kotlinDirectory + "day02\\commands.txt")
-    val day02Data = readData(day02FileName)
+    val day02Data = readData(day = 2)
     val part1Position = runCommands(day02Data)
     println("Day 02 Part 1: ${part1Position.horizontalPosition * part1Position.depth}")
     val part2Position = runCommandsWithAim(day02Data)
     println("Day 02 Part 2: ${part2Position.horizontalPosition * part2Position.depth}")
 
-    val day03FileName = Path.of(kotlinDirectory + "day03\\binary_diagnostic.txt")
-    val day03Data = readData(day03FileName)
+    val day03Data = readData(day = 3)
     println("Day 03 Part 1: ${computePowerConsumption(day03Data).powerConsumption}")
     println("Day 03 Part 2: ${computeLifeSupportRating(day03Data).lifeSupportRating}")
 
-    val day04FileName = Path.of(kotlinDirectory + "day04\\squid_bingo.txt")
-    val day04Data = readData(day04FileName)
+    val day04Data = readData(day = 4)
     val bingoGame = BingoGame.parse(day04Data)
     println("Day 04 Part 1: ${bingoGame.runToFirstWinner()}")
     println("Day 04 Part 2: ${bingoGame.runToLastWinner()}")
 
-    val day05FileName = Path.of(kotlinDirectory + "day05\\hydrothermal_venture.txt")
-    val day05Data = readData(day05FileName)
+    val day05Data = readData(day = 5)
     val lineSegments = day05Data.map(::parseLineSegment)
     println("Day 05 Part 1: ${countIntersections(lineSegments, onlyConsiderVerticalAndHorizontalLineSegments = true)}")
     println("Day 05 Part 2: ${countIntersections(lineSegments)}")
 
-    val day06FileName = Path.of(kotlinDirectory, "day06\\lanternfish.txt")
-    val day06Data = readData(day06FileName)
+    val day06Data = readData(day = 6)
     println("Day 06 Part 1: ${populationSizeAfterNSteps(initializePopulation(day06Data), 80)}")
     println("Day 06 Part 2: ${populationSizeAfterNSteps(initializePopulation(day06Data), 256)}")
 
-    val day07FileName = Path.of(kotlinDirectory, "day07\\the_treachery_of_whales.txt")
-    val day07Data = readData(day07FileName)
+    val day07Data = readData(day = 7)
     println("Day 07 Part 1: ${alignPositionsWithLinearFuelConsumption(createPositionHistogram(day07Data))}")
-    println("Day 07 Part 1: ${alignPositionsWithTriangularFuelConsumption(createPositionHistogram(day07Data))}")
+    println("Day 07 Part 2: ${alignPositionsWithTriangularFuelConsumption(createPositionHistogram(day07Data))}")
+
+    val day08Data = readData(day = 8)
+    println("Day 08 Part 1: ${countOnesFoursSevensAndEightsInOutputValues(day08Data)}")
+    println("Day 08 Part 2: ${sumOutputValues(day08Data)}")
+
+    val day09Data = readData(day = 9)
+    println("Day 09 Part 1:")
+    println("Day 09 Part 2: ")
+
+    val day10Data = readData(day = 10)
+    println("Day 10 Part 1: ")
+    println("Day 10 Part 2: ")
 }
