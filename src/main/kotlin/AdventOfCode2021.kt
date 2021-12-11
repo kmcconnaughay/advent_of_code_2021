@@ -19,6 +19,9 @@ import day09.findBasins
 import day09.parseHeightMap
 import day10.computeAutoCompleteScore
 import day10.computeSyntaxErrorScore
+import day11.findFirstSynchronizedGeneration
+import day11.parseOctopusGrid
+import day11.simulateOctopusGrid
 import org.jetbrains.kotlinx.multik.ndarray.operations.sum
 
 fun main() {
@@ -71,4 +74,9 @@ fun main() {
     val day10Data = readData(day = 10)
     println("Day 10 Part 1: ${computeSyntaxErrorScore(day10Data)}")
     println("Day 10 Part 2: ${computeAutoCompleteScore(day10Data)}")
+
+    val day11Data = readData(day = 11)
+    val octopusGrid = parseOctopusGrid(day11Data)
+    println("Day 11 Part 1: ${simulateOctopusGrid(octopusGrid, numGenerations = 100).numFlashes}")
+    println("Day 11 Part 2: ${findFirstSynchronizedGeneration(octopusGrid)}")
 }
