@@ -129,7 +129,6 @@ fun countAllPaths(caveSystem: CaveSystem, allowDoubleEntryToOneSmallCave: Boolea
                 visitedCaves = currentPath.visitedCaves.plus(nextCave)
             )
             pathStack.addFirst(nextPath)
-
         }
     }
 
