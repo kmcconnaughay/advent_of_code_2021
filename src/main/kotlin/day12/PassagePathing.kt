@@ -119,18 +119,18 @@ fun countAllPaths(caveSystem: CaveSystem, allowDoubleEntryToOneSmallCave: Boolea
                         canVisitSmallCaveAgain = false
                     )
                     pathStack.addFirst(nextPath)
-                } else {
-                    continue
                 }
-            } else {
-                val nextPath = currentPath.copy(
-                    currentCave = nextCave,
-                    visitedCaves = currentPath.visitedCaves.plus(nextCave)
-                )
-                pathStack.addFirst(nextPath)
-            }
-        }
 
+                continue
+            }
+
+            val nextPath = currentPath.copy(
+                currentCave = nextCave,
+                visitedCaves = currentPath.visitedCaves.plus(nextCave)
+            )
+            pathStack.addFirst(nextPath)
+
+        }
     }
 
     return numPaths
