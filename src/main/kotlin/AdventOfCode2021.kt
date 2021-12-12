@@ -22,6 +22,8 @@ import day10.computeSyntaxErrorScore
 import day11.findFirstSynchronizedGeneration
 import day11.parseOctopusGrid
 import day11.simulateOctopusGrid
+import day12.countAllPaths
+import day12.parseCaveSystem
 import org.jetbrains.kotlinx.multik.ndarray.operations.sum
 
 fun main() {
@@ -79,4 +81,9 @@ fun main() {
     val octopusGrid = parseOctopusGrid(day11Data)
     println("Day 11 Part 1: ${simulateOctopusGrid(octopusGrid, numGenerations = 100).numFlashes}")
     println("Day 11 Part 2: ${findFirstSynchronizedGeneration(octopusGrid)}")
+
+    val day12Data = readData(day = 12)
+    val caveSystem = parseCaveSystem(day12Data)
+    println("Day 12 Part 1: ${countAllPaths(caveSystem, allowDoubleEntryToOneSmallCave = false)}")
+    println("Day 12 Part 2: ${countAllPaths(caveSystem, allowDoubleEntryToOneSmallCave = true)}")
 }
