@@ -24,6 +24,10 @@ import day11.parseOctopusGrid
 import day11.simulateOctopusGrid
 import day12.countAllPaths
 import day12.parseCaveSystem
+import day13.fold
+import day13.followFoldInstructions
+import day13.parseThermalCameraManual
+import day13.plot
 import org.jetbrains.kotlinx.multik.ndarray.operations.sum
 
 fun main() {
@@ -86,4 +90,9 @@ fun main() {
     val caveSystem = parseCaveSystem(day12Data)
     println("Day 12 Part 1: ${countAllPaths(caveSystem, allowDoubleEntryToOneSmallCave = false)}")
     println("Day 12 Part 2: ${countAllPaths(caveSystem, allowDoubleEntryToOneSmallCave = true)}")
+
+    val day13Data = readData(day = 13, removeBlankLines = false)
+    val thermalCameraManual = parseThermalCameraManual(day13Data)
+    println("Day 13 Part 1: ${fold(thermalCameraManual.coordinates, thermalCameraManual.foldInstructions[0]).size}")
+    println("Day 14 Part 2:\n${plot(followFoldInstructions(thermalCameraManual))}")
 }

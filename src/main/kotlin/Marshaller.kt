@@ -9,9 +9,15 @@ private const val kotlinDirectory = "src\\main\\kotlin"
  * Marshals lines of data from the given file. It also trims each line and filters empty lines and lines that contain
  * only whitespace.
  */
-fun readData(day: Int): List<String> {
+fun readData(day: Int, removeBlankLines: Boolean = true): List<String> {
     val fileReader = FileReader(fileName(day).toFile())
-    return fileReader.readLines().map(String::trim).filter(String::isNotEmpty)
+    val lines = fileReader.readLines().map { it.trim() }
+
+    return if (removeBlankLines) {
+        lines.filter { it.isNotEmpty() }
+    } else {
+        lines
+    }
 }
 
 private fun fileName(day: Int): Path {
