@@ -78,15 +78,17 @@ fun parseThermalCameraManual(input: List<String>): ThermalCameraManual {
     val blankLine = input.indexOf("")
     return ThermalCameraManual(
         parseCoordinates(input.subList(0, blankLine)),
-        parseFolds(input.subList(blankLine + 1, input.size))
+        parseFoldInstructions(input.subList(blankLine + 1, input.size))
     )
 }
 
-fun parseCoordinates(input: List<String>) = input.map { coordinateParser.parse(Input.of(it)).orThrow }.toSet()
+fun parseCoordinates(input: List<String>): Set<Coordinate> =
+    input.map { coordinateParser.parse(Input.of(it)).orThrow }.toSet()
 
 val coordinateParser: Parser<Chr, Coordinate> = uintr.andL(chr(',')).and(uintr).map { x, y -> Coordinate(x, y) }
 
-fun parseFolds(input: List<String>) = input.map { foldInstructionParser.parse(Input.of(it)).orThrow }
+fun parseFoldInstructions(input: List<String>): List<FoldInstruction> =
+    input.map { foldInstructionParser.parse(Input.of(it)).orThrow }
 
 val foldDirectionParser: Parser<Chr, FoldDirection> =
     chr('x').map { FoldDirection.LEFT }.or(chr('y').map { FoldDirection.UP })
