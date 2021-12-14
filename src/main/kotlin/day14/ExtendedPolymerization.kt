@@ -24,7 +24,9 @@ fun computeElementHistogram(polymerTemplate: String, polymerPairs: Map<String, L
     }
 
     result.replaceAll { element, count ->
-        if (element == polymerTemplate.first() || element == polymerTemplate.last()) {
+        if (element == polymerTemplate.first() && element == polymerTemplate.last()) {
+            (count + 2) / 2
+        } else if (element == polymerTemplate.first() || element == polymerTemplate.last()) {
             (count + 1) / 2
         } else {
             count / 2
