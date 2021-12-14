@@ -28,6 +28,8 @@ import day13.fold
 import day13.followFoldInstructions
 import day13.parseThermalCameraManual
 import day13.plot
+import day14.followPolymerizationInstructions
+import day14.parsePolymerizationInstructions
 import org.jetbrains.kotlinx.multik.ndarray.operations.sum
 
 fun main() {
@@ -95,4 +97,9 @@ fun main() {
     val thermalCameraManual = parseThermalCameraManual(day13Data)
     println("Day 13 Part 1: ${fold(thermalCameraManual.coordinates, thermalCameraManual.foldInstructions[0]).size}")
     println("Day 14 Part 2:\n${plot(followFoldInstructions(thermalCameraManual))}")
+
+    val day14Data = readData(day = 14)
+    val polymerizationInstructions = parsePolymerizationInstructions(day14Data)
+    println("Day 14 Part 1: ${followPolymerizationInstructions(polymerizationInstructions, numSteps = 10)}")
+    println("Day 14 Part 2: ${followPolymerizationInstructions(polymerizationInstructions, numSteps = 40)}")
 }
