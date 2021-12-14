@@ -57,10 +57,10 @@ fun parsePolymerizationInstructions(input: List<String>): PolymerizationInstruct
 }
 
 fun parsePairInsertionRules(pairInsertionRules: List<String>): Map<String, List<String>> =
-    pairInsertionRules.associate { pairInsertionRule ->
-        val (pair, insert) = pairInsertionRule.split(" -> ")
+    pairInsertionRules.associate {
+        val (pair, insert) = it.split(" -> ")
         pair to listOf(pair[0] + insert, insert + pair[1])
     }
 
 fun String.countNGrams(n: Int): Map<String, Long> =
-    this.windowed(size = n).groupingBy { it }.eachCount().mapValues { (_, count) -> count.toLong() }
+    this.windowed(size = n).groupingBy { it }.eachCount().mapValues { it.value.toLong() }

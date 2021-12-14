@@ -112,5 +112,5 @@ internal class ExtendedPolymerizationTest {
     }
 
     private fun String.histogram(): Map<Char, Long> =
-        this.groupingBy { it }.eachCount().mapValues { (_, count) -> count.toLong() }
+        this.groupingBy { it }.eachCount().mapValues { it.value.toLong() }
 }
