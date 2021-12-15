@@ -30,7 +30,11 @@ import day13.parseThermalCameraManual
 import day13.plot
 import day14.followPolymerizationInstructions
 import day14.parsePolymerizationInstructions
+import day15.computeLowestTotalRisk
+import day15.parseChitonRiskLevels
+import day15.tileCave
 import org.jetbrains.kotlinx.multik.ndarray.operations.sum
+import kotlin.system.measureTimeMillis
 
 fun main() {
     val day01Data = readData(day = 1)
@@ -102,4 +106,9 @@ fun main() {
     val polymerizationInstructions = parsePolymerizationInstructions(day14Data)
     println("Day 14 Part 1: ${followPolymerizationInstructions(polymerizationInstructions, numSteps = 10)}")
     println("Day 14 Part 2: ${followPolymerizationInstructions(polymerizationInstructions, numSteps = 40)}")
+
+    val day15Data = readData(day = 15)
+    val chitons = parseChitonRiskLevels(day15Data)
+    println("Day 15 Part 1: ${computeLowestTotalRisk(chitons)}")
+    println("Day 15 Part 2: ${computeLowestTotalRisk(tileCave(chitons))}")
 }
