@@ -33,8 +33,10 @@ import day14.parsePolymerizationInstructions
 import day15.computeLowestTotalRisk
 import day15.parseChitonRiskLevels
 import day15.tileCave
+import day16.Packet
+import day16.hexToBinary
+import day16.sumOfVersionNumbers
 import org.jetbrains.kotlinx.multik.ndarray.operations.sum
-import kotlin.system.measureTimeMillis
 
 fun main() {
     val day01Data = readData(day = 1)
@@ -111,4 +113,9 @@ fun main() {
     val chitons = parseChitonRiskLevels(day15Data)
     println("Day 15 Part 1: ${computeLowestTotalRisk(chitons)}")
     println("Day 15 Part 2: ${computeLowestTotalRisk(tileCave(chitons))}")
+
+    val day16Data = readData(day = 16)
+    val packet = Packet.parse(hexToBinary(day16Data[0])).value
+    println("Day 16 Part 1: ${sumOfVersionNumbers(packet)}")
+    println("Day 16 Part 2: ${packet.expression.computeValue()}")
 }
