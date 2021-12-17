@@ -36,6 +36,9 @@ import day15.tileCave
 import day16.Packet
 import day16.hexToBinary
 import day16.sumOfVersionNumbers
+import day17.countValidInitialVelocities
+import day17.findMaximumAltitude
+import day17.parseTargetArea
 import org.jetbrains.kotlinx.multik.ndarray.operations.sum
 
 fun main() {
@@ -118,4 +121,9 @@ fun main() {
     val packet = Packet.parse(hexToBinary(day16Data[0])).value
     println("Day 16 Part 1: ${sumOfVersionNumbers(packet)}")
     println("Day 16 Part 2: ${packet.expression.computeValue()}")
+
+    val day17Data = readData(day = 17)
+    val targetArea = parseTargetArea(day17Data.first())
+    println("Day 17 Part 1: ${findMaximumAltitude(targetArea)}")
+    println("Day 17 Part 2: ${countValidInitialVelocities(targetArea)}")
 }
