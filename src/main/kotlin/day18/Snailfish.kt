@@ -44,7 +44,6 @@ sealed interface SnailfishNumber {
             if (explodeResult is Explosion) {
                 continue
             }
-
             splitResult = split()
         } while (explodeResult is Explosion || splitResult is SplitToNode)
 
