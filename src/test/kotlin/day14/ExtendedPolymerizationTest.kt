@@ -1,8 +1,5 @@
-import day14.computeElementHistogram
-import day14.countNGrams
-import day14.followPolymerizationInstructions
-import day14.insertPairs
-import day14.parsePolymerizationInstructions
+package day14
+
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 

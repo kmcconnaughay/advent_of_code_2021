@@ -1,3 +1,5 @@
+package day17
+
 import day17.countValidInitialVelocities
 import day17.findMaximumAltitude
 import day17.parseTargetArea
