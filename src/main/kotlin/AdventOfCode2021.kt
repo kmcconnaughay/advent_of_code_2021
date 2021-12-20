@@ -46,6 +46,7 @@ import day19.countBeacons
 import day19.largestManhattanDistance
 import day19.normalizeScannerReadings
 import day19.parseScannerReadings
+import day20.parseTrenchMap
 import org.jetbrains.kotlinx.multik.ndarray.operations.sum
 
 fun main() {
@@ -139,9 +140,13 @@ fun main() {
     println("Day 18 Part 2: ${day18Data.map { SnailfishNumber.parse(it) }.maxPairwiseMagnitude()}")
 
     val day19Data = readData(day = 19)
-    val scannerReadings = parseScannerReadings(day19Data)
-    val normalizedScannerReadings = normalizeScannerReadings(scannerReadings)
+    val normalizedScannerReadings = normalizeScannerReadings(parseScannerReadings(day19Data))
     println("Day 19 Part 1: ${countBeacons(normalizedScannerReadings)}")
     println("Day 19 Part 2: ${largestManhattanDistance(normalizedScannerReadings)}")
+
+    val day20Data = readData(day = 20)
+    val trenchMap = parseTrenchMap(day20Data)
+    println("Day 20 Part 1: ${trenchMap.enhance(numRounds = 2).numLitPixels()}")
+    println("Day 20 Part 1: ${trenchMap.enhance(numRounds = 50).numLitPixels()}")
 }
 
