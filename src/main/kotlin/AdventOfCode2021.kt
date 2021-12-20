@@ -1,4 +1,3 @@
-//import day18.maxPairwiseMagnitude
 import day01.numAveragedDepthMeasurementIncreases
 import day01.numDepthMeasurementIncreases
 import day02.runCommands
@@ -43,6 +42,10 @@ import day17.parseTargetArea
 import day18.SnailfishNumber
 import day18.maxPairwiseMagnitude
 import day18.sum
+import day19.countBeacons
+import day19.largestManhattanDistance
+import day19.normalizeScannerReadings
+import day19.parseScannerReadings
 import org.jetbrains.kotlinx.multik.ndarray.operations.sum
 
 fun main() {
@@ -134,5 +137,11 @@ fun main() {
     val day18Data = readData(day = 18)
     println("Day 18 Part 1: ${day18Data.map { SnailfishNumber.parse(it) }.sum().magnitude()}")
     println("Day 18 Part 2: ${day18Data.map { SnailfishNumber.parse(it) }.maxPairwiseMagnitude()}")
+
+    val day19Data = readData(day = 19)
+    val scannerReadings = parseScannerReadings(day19Data)
+    val normalizedScannerReadings = normalizeScannerReadings(scannerReadings)
+    println("Day 19 Part 1: ${countBeacons(normalizedScannerReadings)}")
+    println("Day 19 Part 2: ${largestManhattanDistance(normalizedScannerReadings)}")
 }
 
