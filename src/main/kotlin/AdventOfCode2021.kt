@@ -47,6 +47,9 @@ import day19.largestManhattanDistance
 import day19.normalizeScannerReadings
 import day19.parseScannerReadings
 import day20.parseTrenchMap
+import day21.StartingPositions
+import day21.playDiracGame
+import day21.playPracticeGame
 import org.jetbrains.kotlinx.multik.ndarray.operations.sum
 
 fun main() {
@@ -91,10 +94,8 @@ fun main() {
     println("Day 09 Part 1: ${computeRiskLevels(heightMap).sum()}")
     val basins = findBasins(heightMap)
     println("Day 09 Part 2: ${
-        basins.map { it.coordinates.size }.sortedDescending().subList(0, 3)
-            .reduce { acc, basinSize -> acc * basinSize }
-    }"
-    )
+        basins.map { it.coordinates.size }.sortedDescending().subList(0, 3).reduce { acc, basinSize -> acc * basinSize }
+    }")
 
     val day10Data = readData(day = 10)
     println("Day 10 Part 1: ${computeSyntaxErrorScore(day10Data)}")
@@ -147,6 +148,11 @@ fun main() {
     val day20Data = readData(day = 20)
     val trenchMap = parseTrenchMap(day20Data)
     println("Day 20 Part 1: ${trenchMap.enhance(numRounds = 2).numLitPixels()}")
-    println("Day 20 Part 1: ${trenchMap.enhance(numRounds = 50).numLitPixels()}")
+    println("Day 20 Part 2: ${trenchMap.enhance(numRounds = 50).numLitPixels()}")
+
+    val day21Data = readData(day = 21)
+    val startingPositions = StartingPositions.parse(day21Data)
+    println("Day 21 Part 1: ${playPracticeGame(startingPositions)}")
+    println("Day 21 Part 2: ${playDiracGame(startingPositions)}")
 }
 
