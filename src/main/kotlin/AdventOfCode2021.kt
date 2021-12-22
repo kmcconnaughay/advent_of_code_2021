@@ -50,6 +50,8 @@ import day20.parseTrenchMap
 import day21.StartingPositions
 import day21.playDiracGame
 import day21.playPracticeGame
+import day22.Day22
+import day22.parseRebootSequence
 import org.jetbrains.kotlinx.multik.ndarray.operations.sum
 
 fun main() {
@@ -154,5 +156,10 @@ fun main() {
     val startingPositions = StartingPositions.parse(day21Data)
     println("Day 21 Part 1: ${playPracticeGame(startingPositions)}")
     println("Day 21 Part 2: ${playDiracGame(startingPositions)}")
+
+    val day22Data = readData(day = 22)
+    val rebootSequence = parseRebootSequence(day22Data)
+    println("Day 22 Part 1: ${Day22.part1(rebootSequence)}")
+    println("Day 22 Part 1: ${Day22.part2(rebootSequence)}")
 }
 
